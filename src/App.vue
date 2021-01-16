@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <h1>项目初始化</h1>
+    <router-view/>
   </div>
 </template>
 
@@ -11,5 +12,10 @@ export default {
 </script>
 
 <style>
-
+ html,
+ body,
+ #app,
+ .container{
+   height: 100%;
+ }
 </style>
