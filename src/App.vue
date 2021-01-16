@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <h1>项目初始化</h1>
     <router-view/>
   </div>
 </template>
@@ -11,7 +10,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import '~styles/mixins.scss';
  html,
  body,
  #app,
