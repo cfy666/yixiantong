@@ -2,24 +2,74 @@
   <div class="scroll-wrapper" ref="wrapper">
     <div class="scroll-content">
       <category-icons></category-icons>
+      <home-title :title="homeTitle.viewTitle"></home-title>
+      <view-list :viewDatas="homeDatas.viewDatas"></view-list>
+      <home-title :title="homeTitle.foodTitle"></home-title>
+      <home-title :title="homeTitle.hotelTitle"></home-title>
+      <home-title :title="homeTitle.massageTitle"></home-title>
+      <home-title :title="homeTitle.ktvTitle"></home-title>
     </div>
   </div>
 </template>
 
 <script>
-import CategoryIcons from './CategoryIcons';
-import BetterScroll from 'better-scroll';
+import CategoryIcons from "./CategoryIcons";
+import HomeTitle from "./Sub/HomeTitle";
+import ViewList from './ViewList';
+
+import BetterScroll from "better-scroll";
+import { IndexModel } from "models/index";
+import { mapState } from "vuex";
 export default {
-  name: 'HomeScrollWrapper',
+  name: "HomeScrollWrapper",
   components: {
-    CategoryIcons
+    CategoryIcons,
+    HomeTitle,
+    ViewList
   },
-  mounted(){
+  data(){
+    return {
+      homeTitle: {
+        foodTitle: '推荐美食',
+        hotelTitle: '推荐酒店',
+        ktvTitle: '推荐KTV',
+        massageTitle: '推荐按摩',
+        viewTitle: '推荐景点'
+      },
+      homeDatas:{
+        foodDatas: [],
+        hotelDatas: [],
+        ktvDatas: [],
+        massageDatas: [],
+        viewDatas: []
+      }
+    }
+  },
+  mounted() {
     this.scroll = new BetterScroll(this.$refs.wrapper);
-  }
-}
+    this.getHomeDatas(this.cityId);
+  },
+  computed: {
+    ...mapState(['cityId'])
+  },
+  methods: {
+    getHomeDatas(cityId) {
+      const indexModel = new IndexModel();
+      indexModel.getHomeDatas(cityId).then(res => {
+        if(res && res.status === 0){
+          const data = res.data;
+
+          this.homeDatas.foodDatas = data.foodDatas;
+          this.homeDatas.hotelDatas = data.hotelDatas;
+          this.homeDatas.ktvDatas = data.ktvDatas;
+          this.homeDatas.massageDatas = data.massageDatas;
+          this.homeDatas.viewDatas = data.viewDatas;
+        }
+      })
+    },
+  },
+};
 </script>
 
 <style>
-
 </style>
