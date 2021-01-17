@@ -1,13 +1,13 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import mutation from './mutation';
-import sate from './state';
+import mutations from './mutation';
+import state from './state';
 
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
-  sate,
-  mutation
+  state,
+  mutations
 })
 
 export default store;
