@@ -5,6 +5,7 @@
       <home-title :title="homeTitle.viewTitle"></home-title>
       <view-list :viewDatas="homeDatas.viewDatas"></view-list>
       <home-title :title="homeTitle.foodTitle"></home-title>
+      <food-list :foodDatas="homeDatas.foodDatas"></food-list>
       <home-title :title="homeTitle.hotelTitle"></home-title>
       <home-title :title="homeTitle.massageTitle"></home-title>
       <home-title :title="homeTitle.ktvTitle"></home-title>
@@ -13,19 +14,23 @@
 </template>
 
 <script>
+import BetterScroll from "better-scroll";
 import CategoryIcons from "./CategoryIcons";
 import HomeTitle from "./Sub/HomeTitle";
 import ViewList from './ViewList';
+import FoodList from './FoodList';
 
-import BetterScroll from "better-scroll";
 import { IndexModel } from "models/index";
 import { mapState } from "vuex";
+
+import tools from 'utils/tools';
 export default {
   name: "HomeScrollWrapper",
   components: {
     CategoryIcons,
     HomeTitle,
-    ViewList
+    ViewList,
+    FoodList
   },
   data(){
     return {
@@ -59,7 +64,7 @@ export default {
         if(res && res.status === 0){
           const data = res.data;
 
-          this.homeDatas.foodDatas = data.foodDatas;
+          this.homeDatas.foodDatas = tools.formatJSON(data.foodDatas, 'keyword');
           this.homeDatas.hotelDatas = data.hotelDatas;
           this.homeDatas.ktvDatas = data.ktvDatas;
           this.homeDatas.massageDatas = data.massageDatas;
