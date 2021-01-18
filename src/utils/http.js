@@ -14,7 +14,7 @@ class HTTP {
     }).then((res) => {
       options.success(res.data);
     }).catch((err) => {
-      options.err(err);
+      options.error(err);
     })
   }
 }
