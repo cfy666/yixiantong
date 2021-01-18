@@ -48,6 +48,7 @@ export default {
   },
   data() {
     return {
+      currentCityId: 0,
       homeTitle: {
         foodTitle: "推荐美食",
         hotelTitle: "推荐酒店",
@@ -68,6 +69,13 @@ export default {
   mounted() {
     this.scroll = new BetterScroll(this.$refs.wrapper);
     this.getHomeDatas(this.cityId);
+    this.currentCityId = this.cityId;
+  },
+  activated(){
+    if(this.currentCityId !== this.cityId){
+      this.currentCityId = this.cityId;
+      this.getHomeDatas(this.cityId);
+    }
   },
   computed: {
     ...mapState(["cityId"])
