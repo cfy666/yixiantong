@@ -7,7 +7,9 @@
       <home-title :title="homeTitle.foodTitle"></home-title>
       <food-list :foodDatas="homeDatas.foodDatas"></food-list>
       <home-title :title="homeTitle.hotelTitle"></home-title>
+      <hotel-list :hotelDatas="homeDatas.hotelDatas"></hotel-list>
       <home-title :title="homeTitle.massageTitle"></home-title>
+      <massage-list :massageDatas="homeDatas.massageDatas"></massage-list>
       <home-title :title="homeTitle.ktvTitle"></home-title>
     </div>
   </div>
@@ -19,6 +21,8 @@ import CategoryIcons from "./CategoryIcons";
 import HomeTitle from "./Sub/HomeTitle";
 import ViewList from './ViewList';
 import FoodList from './FoodList';
+import HotelList from './HotelList';
+import MassageList from './MassageList';
 
 import { IndexModel } from "models/index";
 import { mapState } from "vuex";
@@ -30,7 +34,9 @@ export default {
     CategoryIcons,
     HomeTitle,
     ViewList,
-    FoodList
+    FoodList,
+    HotelList,
+    MassageList
   },
   data(){
     return {
