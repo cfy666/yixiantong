@@ -1,19 +1,22 @@
 <template>
   <div class="container">
     <common-header :title="title"></common-header>
+    <list-scroll-wrapper></list-scroll-wrapper>
   </div>
 </template>
 
 <script>
 import CommonHeader from 'components/Header/Common';
+import ListScrollWrapper from 'components/ScrollWrapper/List';
 export default {
   name: 'List',
   components: {
-    CommonHeader
+    CommonHeader,
+    ListScrollWrapper
   },
   data(){
     return {
-      title: 'x',
+      title: '列表',
     }
   }
 }
