@@ -25,6 +25,10 @@
     <detail-recom
       :recom="recom"
     ></detail-recom>
+
+    <detail-comment-keyword
+      :commentKeyword="commentKeyword"
+    ></detail-comment-keyword>
   </div>
 </template>
 
@@ -35,6 +39,7 @@ import DetailAddress from './Sub/Address';
 import DetailPrice from './Sub/Price';
 import DetailOpenDateTime from './Sub/OpenDateTime';
 import DetailRecom from './Sub/Recom';
+import DetailCommentKeyword from './Sub/CommentKeyword';
 export default {
   name: 'DetailFood',
   components: {
@@ -43,7 +48,8 @@ export default {
     DetailAddress,
     DetailPrice,
     DetailOpenDateTime,
-    DetailRecom
+    DetailRecom,
+    DetailCommentKeyword
   },
   props: {
     name: String,
@@ -52,7 +58,8 @@ export default {
     address: String,
     price: Number,
     openDateTime: String,
-    recom: String
+    recom: String,
+    commentKeyword: Array
   }
 }
 </script>

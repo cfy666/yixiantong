@@ -30,7 +30,7 @@ export default {
   line-height: .44rem;
   box-sizing: border-box;
 
-  .icon-font {
+  .iconfont {
     font-size: .18rem;
     color: $defaultGreen;
   }
