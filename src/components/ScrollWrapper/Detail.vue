@@ -114,7 +114,11 @@ export default {
     }
   },
   mounted(){
-    this.scroll = new BetterScroll(this.$refs.wrapper);
+    this.scroll = new BetterScroll(this.$refs.wrapper,{
+      mouseWheel: true,
+      click: true,
+      tap: true
+    });
     this.id = this.$route.query.id;
     this.field = this.$route.query.field;
     this.getDetail(this.field, this.id);
