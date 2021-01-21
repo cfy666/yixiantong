@@ -98,6 +98,10 @@ export default {
           this.homeDatas.viewDatas = data.viewDatas;
         }else{
           this.errorShow = true;
+          console.log({
+            statusCode: res.status,
+            errorMsg: res.err
+          });
         }
       });
     }

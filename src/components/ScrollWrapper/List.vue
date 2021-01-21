@@ -99,6 +99,10 @@ export default {
             }, 500);
           }else{
             this.errorShow = true;
+            console.log({
+            statusCode: res.status,
+            errorMsg: res.err
+          });
           }
         });
       }
